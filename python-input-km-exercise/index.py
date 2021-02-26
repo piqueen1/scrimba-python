@@ -5,3 +5,10 @@
 # - hint: use correct types for calculating and print
 # - Did you capitalize the name
 
+name= input('What is your name?')
+km= input('How many kilometers do you want to convert?')
+
+print(f'Hi {name}, I am convertine {km} kilometers for you.')
+miles= float(km)/1.609
+
+print(f'{km} kilometers is {str(round(miles,1))} miles.')
