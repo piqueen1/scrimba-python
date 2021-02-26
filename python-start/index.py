@@ -1,2 +1,2 @@
-print('Welcome to Python 101 on Scrimba')
-print('Welcome to Python 102 on Scrimba')
+msg = 'Welcome to Python 101: Strings'
+print(msg[20],msg[:7],msg[27:])
