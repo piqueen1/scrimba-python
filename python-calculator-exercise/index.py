@@ -3,21 +3,20 @@ print('if elif else - Exercise')
 # Hint: use 3 separate inputs 
 # Bonus: Extend functionality with extra mode so it also does celsius to fahrenheit conversion
 # formula is: temp in C*9/5 + 32 = temp in f
-
-def calculate(num1,operator,num2):
-  if operator == '+':
-    result = num1 + num2
-  elif operator == '-':
-    result = num1 - num2
-  elif operator == '*':
-    result = num1 * num2
-  elif operator == '/':
-    result = num1 / num2
-  else: 
-    result = "Please enter one of the following operators: + - * /"
-  return result
-
 num1 = input('Enter the first number')
-operator = input('Please enter one of the following operators: + - * /')
-num2 = input('Enter the second number')
-print(calculate(int(num1),operator,int(num2)))
+operator = input('Please enter one of the following operators: + - * / or enter f for Celsius to Fahrenheit conversion')
+if operator.lower() == 'f':
+  print(f'{num1} Celsius is equivalent to {(num1*9/5) + 32} Fahrenheit')
+else:
+  num2 = input('Enter the second number')
+
+  if operator == '+':
+    print(f'Anser is {num1 + num2}')
+  elif operator == '-':
+    print(f'Anser is {num1 - num2}')
+  elif operator == '*':
+    print(f'Anser is {num1 * num2}')
+  elif operator == '/':
+    print(f'Anser is {num1 / num2}')
+  else:
+    print('Input error!')
