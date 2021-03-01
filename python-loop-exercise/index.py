@@ -16,17 +16,21 @@ print('Guessing game')
 #3. How long should we repeat?
 #  -> 
 
-target = random.randint(1,101)
+num = random.randint(1,101)
+guess = 0
+guess_limit=5
+guess_number = 1
+guess = int(input('Guess a number 1-100'))
 
-def take_guess():
-  guess = int(input('Please enter a guess between 1 and 100'))
-  if guess == target:
-    print(f'You win!  You guessed {guess} and the answer was {target}! Kudos!')
-  elif guess > target:
-    print(f'{guess} is too high.  Guess a lower number.')
-    take_guess()
-  elif guess < target:
-    print(f'{guess} is too low.  Guess a higher number.')
-    take_guess()
-
-take_guess()
+while guess_number < guess_limit:  
+    if guess != num:
+      guess_number += 1
+      if guess > num:
+        guess=int(input(f'{guess} is too high -- guess again!'))
+      else:
+        guess=int(input(f'{guess} is too low -- guess again!'))
+    if guess == num:
+        print(f'You Win! You Guessed it: {guess}')
+        break
+if guess != num:
+    print(f'Sorry you lose! It was {num}')
