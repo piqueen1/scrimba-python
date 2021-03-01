@@ -13,20 +13,14 @@
 freelancers = {'name':'freelancing Shop','brian': 70, 'black knight':20, 'biccus diccus':100, 'grim reaper':500, 'minstrel':-15}
 antiques = {'name':'Antique Shop','french castle':400, 'wooden grail':3, 'scythe':150, 'catapult':75, 'german joke':5}
 pet_shop = {'name':'Pet Shop','blue parrot':10, 'white rabbit':5, 'newt': 2}
-
-
-
-
-
-
-
-
+stores = [freelancers, antiques, pet_shop]
 #create an dempty shopping cart
 cart = {}
 #loop through stores/dicts
-for LOOP OVER THE SHOPS :
-    #inputbox  to show what you can buy...capture textstring of what was bought...make lowercase
-    buy_item = input(f'Welcome to {SHOPNAME}! what do you want to buy: {LIST ITEMS FOR SALE})
+for store in stores :
+     #inputbox  to show what you can buy...capture textstring of what was bought...make lowercase
+    buy_item = input(f'Welcome to {store['name']}! what do you want to buy: {store[1:]}')
     #update the cart
-    cart.update({insert KEYVAL:VALUE}) # use pop...
-print(f'You Purchased {ITEMS PUCHASED} Today it is all free. Have a nice day of mayhem!')
+    cart.update({buy_item : store[buy_item]}) 
+    # use pop...
+print(f'You Purchased {cart.keys} Today it is all free. Have a nice day of mayhem!')
