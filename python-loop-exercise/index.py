@@ -1,3 +1,5 @@
+import random
+
 print('Guessing game') 
 # Guess the correct number in 3 guesses. If you don’t get it right after 3 guesses you lose the game. 
 # Give user input box: 1. To capture guesses, 
@@ -13,3 +15,18 @@ print('Guessing game')
 #  -> 
 #3. How long should we repeat?
 #  -> 
+
+target = random.randint(1,101)
+
+def take_guess():
+  guess = int(input('Please enter a guess between 1 and 100'))
+  if guess == target:
+    print(f'You win!  You guessed {guess} and the answer was {target}! Kudos!')
+  elif guess > target:
+    print(f'{guess} is too high.  Guess a lower number.')
+    take_guess()
+  elif guess < target:
+    print(f'{guess} is too low.  Guess a higher number.')
+    take_guess()
+
+take_guess()
