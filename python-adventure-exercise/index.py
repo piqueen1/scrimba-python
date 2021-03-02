@@ -15,6 +15,8 @@ antiques = {'name':'Antique Shop','french castle':400, 'wooden grail':3, 'scythe
 pet_shop = {'name':'Pet Shop','blue parrot':10, 'white rabbit':5, 'newt': 2}
 #create an dempty shopping cart
 cart = {}
+#create a purse
+purse = 1000
 #loop through stores/dicts
 for shop in (freelancers,antiques,pet_shop):
      #inputbox  to show what you can buy...capture textstring of what was bought...make lowercase
@@ -22,8 +24,12 @@ for shop in (freelancers,antiques,pet_shop):
     if buy_item not in shop.keys():
         print('Next shop it is!')
         continue
+    #calculate remaining gold
+    purse = purse - shop[buy_item]
+    #give info on remaining gold
+    print(f'That cost {shop[buy_item]} so you have {purse} gold remaining')
     #update the cart
     cart.update({buy_item : shop.pop(buy_item)}) 
     # use pop...
     bought_items = " and a ".join(list(cart.keys()))
-print(f'You purchased a {bought_items}. Today it is all free. Have a nice day of mayhem!')
+print(f'You purchased a {bought_items}. You spent {1000 - purse} so you have {purse} gold coins remaining. Have a nice day of mayhem!')
