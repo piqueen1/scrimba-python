@@ -16,9 +16,12 @@ pet_shop = {'name':'Pet Shop','blue parrot':10, 'white rabbit':5, 'newt': 2}
 #create an dempty shopping cart
 cart = {}
 #loop through stores/dicts
-for shop in (freelancers,antiques,pet_shop) :
+for shop in (freelancers,antiques,pet_shop):
      #inputbox  to show what you can buy...capture textstring of what was bought...make lowercase
-    buy_item = input(f'Welcome to {shop["name"]}! what do you want to buy: {shop}').lower()
+    buy_item = input(f'Welcome to {shop["name"]}! What do you want to buy? Or type exit to go to next shop without buying anything.  Here\'s what we have: {shop}').lower()
+    if buy_item not in shop.keys():
+        print('Next shop it is!')
+        continue
     #update the cart
     cart.update({buy_item : shop.pop(buy_item)}) 
     # use pop...
