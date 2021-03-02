@@ -13,17 +13,26 @@
 freelancers = {'name':'freelancing Shop','brian': 70, 'black knight':20, 'biccus diccus':100, 'grim reaper':500, 'minstrel':-15}
 antiques = {'name':'Antique Shop','french castle':400, 'wooden grail':3, 'scythe':150, 'catapult':75, 'german joke':5}
 pet_shop = {'name':'Pet Shop','blue parrot':10, 'white rabbit':5, 'newt': 2}
+#morning inventory
+department_store = {}
+for department in (freelancers, antiques, pet_shop) : department_store.update(department)
+department_store.pop('name')
+print('Morning inventory of stores', sorted(department_store.items()))
+print('____________________________')
 #create an dempty shopping cart
 cart = {}
 #create a purse
 purse = 1000
+buy_items1 = ''
 #loop through stores/dicts
 for shop in (freelancers,antiques,pet_shop):
      #inputbox  to show what you can buy...capture textstring of what was bought...make lowercase
     buy_item = input(f'Welcome to {shop["name"]}! What do you want to buy? Or type exit to go to next shop without buying anything.  Here\'s what we have: {shop}').lower()
-    if buy_item not in shop.keys():
+    if buy_item not in shop:
         print('Next shop it is!')
         continue
+    #update string
+    buy_items1 = buy_items1 + f'{buy_item}: {shop[buy_item]} Gp, '
     #calculate remaining gold
     purse = purse - shop[buy_item]
     #give info on remaining gold
@@ -32,4 +41,9 @@ for shop in (freelancers,antiques,pet_shop):
     cart.update({buy_item : shop.pop(buy_item)}) 
     # use pop...
     bought_items = " and a ".join(list(cart.keys()))
-print(f'You purchased a {bought_items}. You spent {1000 - purse} so you have {purse} gold coins remaining. Have a nice day of mayhem!')
+print(f'You purchased a {buy_items1}. You spent {1000 - purse} so you have {purse} gold coins remaining. Have a nice day of mayhem!')
+#evening inventory
+department_store_after = {**freelancers, **antiques, **pet_shop}
+department_store_after.pop('name')
+print('____________________________')
+print('Evening inventory of stores', sorted(department_store_after.items()))
